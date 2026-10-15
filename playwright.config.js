@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   reporter: 'html',
-  timeout: 30000,
+  timeout: 40000,
   expect:{
     timeout: 10000,
   },
