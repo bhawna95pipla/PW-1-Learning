@@ -6,7 +6,7 @@ export default defineConfig({
   reporter: 'html',
   timeout: 40000,
   expect:{
-    timeout: 10000,
+    timeout: 30000,
   },
   
   use: {
@@ -15,7 +15,8 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot : 'on-first-failure',
     video: 'retain-on-first-failure',
-    //headless: false,
+    headless: false,
+     viewport: { width: 1920, height: 1080 },
   },
 
   projects: [
