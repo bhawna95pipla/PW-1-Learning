@@ -3,25 +3,25 @@ import{test,expect,chromium} from '@playwright/test';
 
 test.only('All CSS locators', async({page}) => {
     await page.goto("https://www.demoblaze.com/");
-    await page.pause();
 
     await page.locator("#login2").click();
+
     await page.fill("input[id*='loginuser']", "@ab@");
     await page.fill("#loginpassword", "@ab@");
     await page.click("[onclick^=logIn]");
 
     await expect(page.locator("[id$='user']")).toBeVisible();
-
     console.log(await page.locator("a[class*='list']").allTextContents());
 
     await page.locator(".container p");
     await page.locator("#contcont > div");
-
     await page.locator("#tbodyid > div");
 
+    await page.locator("[id='cat'] + a");
+    await page.locator("nav [type='button'] ~ div");
 
+    await page.locator("a:not([href='#'])");  
 
-    
 });
 
 
