@@ -1,5 +1,31 @@
 import{test,expect,chromium} from '@playwright/test';
 
+
+test.only('All CSS locators', async({page}) => {
+    await page.goto("https://www.demoblaze.com/");
+    await page.pause();
+
+    await page.locator("#login2").click();
+    await page.fill("input[id*='loginuser']", "@ab@");
+    await page.fill("#loginpassword", "@ab@");
+    await page.click("[onclick^=logIn]");
+
+    await expect(page.locator("[id$='user']")).toBeVisible();
+
+    console.log(await page.locator("a[class*='list']").allTextContents());
+
+    await page.locator(".container p");
+    await page.locator("#contcont > div");
+
+    await page.locator("#tbodyid > div");
+
+
+
+    
+});
+
+
+
 test('Login Test with CSS using locator', async({page}) => {
 
     await page.goto("https://www.saucedemo.com/");
@@ -29,7 +55,7 @@ test('Login Test with CSS using direct methods', async({page}) => {
 });
 
 
-test.only('CSS locators', async({page}) => {
+test('CSS locators', async({page}) => {
     await page.goto("https://www.ourgoalplan.co.in/Login.aspx");
 
     await page.locator("#txtName").fill("bhawnap");
