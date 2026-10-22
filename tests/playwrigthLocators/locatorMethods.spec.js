@@ -1,6 +1,6 @@
 import {test,page} from '@playwright/test';
 
-test('Locator Mehtods to get specific element', async({page}) => {
+test('Indexing Mehtods to get specific element', async({page}) => {
     await page.goto("https://www.saucedemo.com/");
 
     await page.fill("#user-name","standard_user");
@@ -18,7 +18,4 @@ test('Locator Mehtods to get specific element', async({page}) => {
 
     //filter() — Narrow down by text
     await page.getByTestId("inventory-item").filter({hasText : 'Sauce Labs Bike Light'});
-
-
-
 });
