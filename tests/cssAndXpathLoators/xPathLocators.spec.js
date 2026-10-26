@@ -24,41 +24,29 @@ test('Login Test with xpath locator', async({page}) => {
 test('Relationship & Text Xpath locators', async({page}) => {
 await page.goto("https://www.saucedemo.com/");
 
-    //and :Both conditions must be true for the element to match.
     await page.locator("//input[@id='user-name' and @placeholder='Username']");
 
-    //or : Either condition can be true for the element to match.
     await page.locator("//input[@placeholder='Username' or @placeholder='Password']");
 
-    //Parent axis — parent:: Find the parent of the username input:
     await page.locator("//input[@id='user-name']/parent::*");
 
-    // Child axis — child:: Find all direct child elements of the login form:
     await page.locator("//*[@class='inventory_container']/child::*");
 
-    //ancestor : Select parents and higher ancestors
     await page.locator("//input[@id='user-name']/ancestor::form");
 
-    // descendant:: Select all descendants
     await page.locator("//*[@id='inventory_container']/descendant::div");
 
-    //following:: Select later elements in document order, excluding descendants
     await page.locator("//input[@id='user-name']/following::input");
 
-    //preceding:: Select earlier elements in document order, excluding ancestors
     await page.locator("//input[@id='password']/preceding::input");
 
-    //contains : searched for partial text
     await page.locator("//h4[contains(text(),'Accepted')]");
 
-    //normalize-space() to remove leading and trailing whitespace and collapse consecutive spaces into a single space before matching text.
     await page.locator("//*[normalize-space()='Swag Labs']");
 
-    //indexing 
     await page.locator("(//input)[1]");
     await page.locator("(//form//div)[2]");
 
-    //starts-with() function locates an element whose attribute value begins with specified text.
     await page.locator("//input[starts-with(@class,'submit')]");
 });
 

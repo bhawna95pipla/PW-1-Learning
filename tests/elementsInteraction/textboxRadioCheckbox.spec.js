@@ -10,9 +10,6 @@ await expect(page.locator("//input[@id='email']")).toBeEditable();
 await expect(page.locator("//input[@id='email']")).toBeEnabled();
 
 await page.fill("//input[@id='email']", "abd@gmail.com");
-
-await page.waitForTimeout(2000);
-
 });
 
 
@@ -26,9 +23,6 @@ await expect(await page.locator("//input[@value='standard']")).toBeChecked();
 await expect(await page.locator("//input[@value='standard']").isChecked()).toBeTruthy();
 
 await expect(await page.locator("//input[@value='express']").isChecked()).toBeFalsy();
-
-await page.waitForTimeout(4000);
-
 });
 
 
@@ -41,13 +35,8 @@ await page.check("//input[@role='checkbox']");
 await expect(await page.locator("//input[@role='checkbox']")).toBeChecked();
 await expect(await page.locator("//input[@role='checkbox']").isChecked()).toBeTruthy();
 
-await page.waitForTimeout(1000);
-
 await page.uncheck("//input[@role='checkbox']");
 await expect(await page.locator("//input[@role='checkbox']").isChecked()).toBeFalsy();
-
-await page.waitForTimeout(2000);
-
 });
 
 
