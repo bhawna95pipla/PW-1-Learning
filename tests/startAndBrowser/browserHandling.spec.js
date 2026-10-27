@@ -6,9 +6,6 @@ const browser = await chromium.launch({headless : false});
 const page = await browser.newPage();
 
 await page.goto("https://www.amazon.in/");
-
-await page.waitForTimeout(2000);
-
 await browser.close();
 });
 
@@ -19,12 +16,12 @@ const browser = await chromium.launch();
 const context1 = await browser.newContext();
 const page1 = await context1.newPage();
 await page1.goto("https://www.google.com");
-await page1.waitForTimeout(1000);
+
 
 const context2 = await browser.newContext();
 const page2 = await context2.newPage();
 await page2.goto("https://www.ourgoalplan.co.in/GoalSheet.aspx");
-await page2.waitForTimeout(3000);
+
 
 await browser.close();
 });
@@ -46,29 +43,26 @@ await page.setViewportSize({
 });
 
 await page.goto("https://www.google.com");
-await page.waitForTimeout(1000);
-
-
 await browser.close();
 });
 
 
-test('Browser maximize & full screen',async () =>{
-const browser = await chromium.launch({
-    headless: false,
+test.only('Browser maximize', async () => {
+  const browser = await chromium.launch({
     args: ['--start-maximized'],
-    
   });
 
-const context = await browser.newContext({
+  const context = await browser.newContext({
     viewport: null,
-});
-const page = await context.newPage();
-await page.goto("https://www.google.com");
+  });
 
-await page.waitForTimeout(1000);
-await browser.close();
+  const page = await context.newPage();
+
+  await page.goto('https://www.google.com');
+
+  await browser.close();
 });
+
 
 
 
