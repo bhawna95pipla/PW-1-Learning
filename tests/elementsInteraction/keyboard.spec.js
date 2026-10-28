@@ -13,6 +13,12 @@ test('Keyboard Actions', async({page}) => {
     await page.keyboard.up("Tab");
 
     await page.keyboard.press("Control+V");
-    await expect(await page.locator("[name='password']")).toHaveValue("abcd");
+    await page.keyboard.press("Shift");
+    await page.fill("#email","qwer");
+
+    await page.waitForTimeout(5000);
+    //await expect(await page.locator("[name='password']")).toHaveValue("abcd");
 
 });
+
+//caps

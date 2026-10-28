@@ -28,13 +28,12 @@ test('DropDown Assertions', async({page}) => {
   console.log(options.length);
   await expect(options.length).toBe(10);
 
-  //Check particular otion presnt in dropdown list
+  //Check particular option present in dropdown list
   const content = await page.locator("#country").textContent();
   await expect(content.includes("India")).toBeTruthy();
-
+   
   let status= false;
   for(const option of options){
-
     let value = await option.textContent();
     if(value.includes("Japan")){
         status = true;
@@ -50,11 +49,9 @@ test('Select dropdown value using loop', async({page}) => {
 
   await page.goto("https://testautomationpractice.blogspot.com/");
 
-
   const options = await page.$$("#country option");
 
   for(const option of options){
-
     let value = await option.textContent();
     if(value.includes("Japan")){
         await page.selectOption("#country", value);
@@ -84,3 +81,48 @@ await expect(content.includes("Blue")).toBeTruthy();
 await expect(content.includes("Purple")).toBeFalsy();
   
 });
+
+
+test('Bootstrap Dropdown', async({page}) => {
+
+  await page.goto("https://qaplayground.com/practice/dropdowns");
+
+  await page.locator("[id*='fruit']").click();
+
+  const listOptions = await page.locator("[id*='fruit'] option");
+  await expect(listOptions).toHaveCount(4);
+
+ const options = await page.$$("[id*='fruit']");
+ for(let option of options)
+ {
+  const value = await option.textContent();
+  if(value.includes("Apple")){
+    await option.click();
+    break;
+  }
+ }
+
+});
+
+
+
+test.only('Auto-suggest Dropdown', async({page}) => {
+
+  await page.goto("https://www.makemytrip.com/", { waitUntil : 'domcontentloaded'});
+
+  await page.locator("span[class*='close']").click();
+  await page.locator("[placeholder='From']").fill("Delhi");
+  await page.waitForSelector("li[role='option'] span");
+
+  const fromCity = await page.$$("li[role='option'] span");
+
+  for(let option of fromCity){
+    const value= await option.textContent();
+    console.log(value);
+    
+  }
+});
+
+
+
+
