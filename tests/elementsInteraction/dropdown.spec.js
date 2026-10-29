@@ -111,6 +111,7 @@ test.only('Auto-suggest Dropdown', async({page}) => {
   await page.goto("https://www.makemytrip.com/", { waitUntil : 'domcontentloaded'});
 
   await page.locator("span[class*='close']").click();
+  await page.locator("#fromCity").click();
   await page.locator("[placeholder='From']").fill("Delhi");
   await page.waitForSelector("li[role='option'] span");
 
