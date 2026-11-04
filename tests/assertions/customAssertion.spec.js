@@ -9,5 +9,4 @@ test('Custom Assertion', async({page}) => {
     const firstName = page.locator("#firstName");
     await firstName.fill("Bhawna");
     await expect(firstName).toHaveEnteredText("Bhawna");
-
 });

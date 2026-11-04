@@ -13,15 +13,11 @@ const expect = baseExpect.extend({
         catch (error) {
             pass = false;
         }
-
         return {
             pass,
-
             message: () =>
                 `Expected input to contain "${expectedText}"`
         };
-    }
-
-});
+    }});
 
 export { expect };
