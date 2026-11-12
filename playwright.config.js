@@ -17,7 +17,11 @@ export default defineConfig({
     video: 'retain-on-first-failure',
     headless: false,
     // viewport: { width: 1920, height: 1080 },
+    actionTimeout: 10000,
+    navigationTimeout: 15000
   },
+
+   globalTimeout: 300000,
 
   projects: [
     {
