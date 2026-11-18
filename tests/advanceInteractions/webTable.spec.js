@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 
-test('Tables', async({page}) => {
+test('Table Handling', async({page}) => {
 
     await page.goto("https://testautomationpractice.blogspot.com/p/playwrightpractice.html");
 
