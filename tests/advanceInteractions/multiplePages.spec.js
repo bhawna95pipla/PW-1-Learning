@@ -35,3 +35,4 @@ await expect(page2).toHaveTitle("merrymoonmary Stock Image and Video Portfolio -
 
 await browser.close();
 });
+// bring to function
