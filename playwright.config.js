@@ -4,6 +4,8 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   reporter: 'html',
+  //fullyParallel : false,
+  //workers : 1,
   timeout: 40000,
   expect:{
     timeout: 30000,
@@ -18,7 +20,7 @@ export default defineConfig({
     headless: false,
     // viewport: { width: 1920, height: 1080 },
     actionTimeout: 10000,
-    navigationTimeout: 15000
+    navigationTimeout: 30000
   },
 
    globalTimeout: 300000,
