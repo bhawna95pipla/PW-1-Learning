@@ -13,7 +13,7 @@ export default defineConfig({
   
   use: {
    
-    // baseURL: 'http://localhost:3000',
+    //baseURL: 'https://www.saucedemo.com/',
     trace: 'on-first-retry',
     screenshot : 'on-first-failure',
     video: 'retain-on-first-failure',
